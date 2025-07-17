@@ -33,7 +33,6 @@ function showForm(type) {
 
   if (type === "facility") {
     let step = 1;
-
     renderFacilityStep();
 
     function renderFacilityStep() {
@@ -77,15 +76,8 @@ function showForm(type) {
       container.innerHTML = html;
     }
 
-    window.goBack = function () {
-      if (step > 1) step--;
-      renderFacilityStep();
-    };
-
-    window.goNext = function () {
-      if (step < 4) step++;
-      renderFacilityStep();
-    };
+    window.goBack = () => { if (step > 1) step--; renderFacilityStep(); };
+    window.goNext = () => { if (step < 4) step++; renderFacilityStep(); };
 
   } else if (type === "breakdown") {
     container.innerHTML = `
