@@ -108,7 +108,7 @@ header {
 }
 
 .form-box {
-  max-width: 720px;
+  max-width: 900px;
   background: rgba(255, 255, 255, 0.97);
   color: #002f6c;
   margin: 30px auto;
@@ -136,8 +136,8 @@ form button {
 
 .button-group {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
   margin: 20px 0;
 }
 
