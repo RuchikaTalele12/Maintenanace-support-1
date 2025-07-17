@@ -33,53 +33,61 @@ function showForm(type) {
 
   if (type === "facility") {
     let step = 1;
-    renderFacilityStep();
+    const selections = { building: "", area: "", subarea: "" };
 
-    function renderFacilityStep() {
+    renderStep();
+
+    function renderStep() {
       let html = `<h2>🏢 Facility Service</h2><form onsubmit="submitForm(event, 'Facility Service')">`;
 
       if (step === 1) {
-        html += `<p><strong>Select Building No.</strong></p>
+        html += `<p><strong>Select Building</strong></p>
         <div class="button-group">
-          <button type="button" class="mini-btn">Building 1</button>
-          <button type="button" class="mini-btn">Building 2</button>
-          <button type="button" class="mini-btn">Building 3</button>
+          ${["B1", "B2", "B3", "B4", "B5", "B6", "B7"].map(b =>
+            `<button type="button" class="mini-btn" onclick="selectBuilding('${b}')">${b}</button>`).join("")}
         </div>`;
       } else if (step === 2) {
-        html += `<p><strong>Select Area Code</strong></p>
+        html += `<p><strong>Select Area</strong></p>
         <div class="button-group">
-          <button type="button" class="mini-btn">Ground Floor</button>
-          <button type="button" class="mini-btn">First Floor</button>
-          <button type="button" class="mini-btn">Washroom</button>
+          ${["Ground Floor", "First Floor", "Washroom", "Mezzanine Floor", "Basement"].map(a =>
+            `<button type="button" class="mini-btn" onclick="selectArea('${a}')">${a}</button>`).join("")}
         </div>`;
       } else if (step === 3) {
         html += `<p><strong>Select Sub Area</strong></p>
         <div class="button-group">
-          <button type="button" class="mini-btn">Assembly Shop</button>
-          <button type="button" class="mini-btn">CNC Shop</button>
-          <button type="button" class="mini-btn">Purchase</button>
+          ${["CNC Shop", "Assembly Shop", "Reception", "Office", "HR", "ETM", "Store"].map(s =>
+            `<button type="button" class="mini-btn" onclick="selectSubArea('${s}')">${s}</button>`).join("")}
         </div>`;
       } else if (step === 4) {
-        html += `<p><strong>Service Description</strong></p>
+        html += `<p><strong>Description</strong></p>
         <textarea placeholder="Write your issue..." required></textarea>
-        <input type="file" />`;
+        <input type="file" />
+        <div class="button-nav">
+          <button type="button" onclick="goBack()">⬅️ Back</button>
+          <button type="submit">✅ Submit</button>
+        </div>`;
       }
 
-      html += `<div class="button-nav">
-        ${step > 1 ? `<button type="button" onclick="goBack()">⬅️ Back</button>` : ""}
-        ${step < 4 ? `<button type="button" onclick="goNext()">Next ➡️</button>` : ""}
-        ${step === 4 ? `<button type="submit">✅ Submit</button>` : ""}
-      </div>
-      <button type="button" onclick="hideForm()">Back</button>
-      </form>`;
+      if (step < 4) {
+        html += `<div class="button-nav">
+          ${step > 1 ? `<button type="button" onclick="goBack()">⬅️ Back</button>` : ""}
+          <button type="button" onclick="goNext()">Next ➡️</button>
+        </div>`;
+      }
 
+      html += `<button type="button" onclick="hideForm()">Cancel</button></form>`;
       container.innerHTML = html;
     }
 
-    window.goBack = () => { if (step > 1) step--; renderFacilityStep(); };
-    window.goNext = () => { if (step < 4) step++; renderFacilityStep(); };
+    window.selectBuilding = val => { selections.building = val; goNext(); };
+    window.selectArea = val => { selections.area = val; goNext(); };
+    window.selectSubArea = val => { selections.subarea = val; goNext(); };
 
-  } else if (type === "breakdown") {
+    window.goBack = () => { if (step > 1) step--; renderStep(); };
+    window.goNext = () => { if (step < 4) step++; renderStep(); };
+  }
+
+  else if (type === "breakdown") {
     container.innerHTML = `
       <h2>⚙️ Breakdown Request</h2>
       <form onsubmit="submitForm(event, 'Breakdown')">
@@ -93,7 +101,9 @@ function showForm(type) {
         <button type="submit">Submit</button>
         <button type="button" onclick="hideForm()">Back</button>
       </form>`;
-  } else if (type === "safety") {
+  }
+
+  else if (type === "safety") {
     container.innerHTML = `
       <h2>🦺 Safety Concern</h2>
       <form onsubmit="submitForm(event, 'Safety')">
@@ -102,7 +112,9 @@ function showForm(type) {
         <button type="submit">Submit</button>
         <button type="button" onclick="hideForm()">Back</button>
       </form>`;
-  } else if (type === "track") {
+  }
+
+  else if (type === "track") {
     container.innerHTML = `
       <h2>🔍 Track Ticket</h2>
       <form onsubmit="trackTicket(event)">
