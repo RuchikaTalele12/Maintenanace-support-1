@@ -1,0 +1,133 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background Image + Gradient */
+body.bg-image {
+  background: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header Box Styling */
+.header-box {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+}
+
+.header-box h1 {
+  font-size: 24px;
+  color: #007acc;
+  margin-bottom: 8px;
+}
+
+.header-box p {
+  font-size: 16px;
+  color: #444;
+}
+
+/* Card Box for Forms */
+.card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Buttons */
+.card button {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  background: linear-gradient(to right, #007acc, #0097d4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card button:hover {
+  background: linear-gradient(to right, #005a9e, #0077b6);
+  transform: scale(1.02);
+}
+
+/* Anchor Link */
+.card a {
+  color: #007acc;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .card,
+  .header-box {
+    width: 90%;
+  }
+
+  .header-box h1 {
+    font-size: 20px;
+  }
+
+  .card button {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-box {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 25px 20px;
+  }
+
+  .card input {
+    font-size: 14px;
+  }
+
+  .card button {
+    font-size: 15px;
+    padding: 14px;
+  }
+}

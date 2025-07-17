@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WIKA Maint Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-image">
+  <div class="header-box">
+    <h1>WIKA Instruments India Pvt. Ltd.</h1>
+    <p>Welcome to the WIKA Maint Service Portal</p>
+  </div>
+
+  <div class="card" id="mainMenu">
+    <h2>Choose an Option</h2>
+    <button onclick="showRegister()">📝 Register</button>
+    <button onclick="showLogin()">🔐 Login</button>
+  </div>
+
+  <!-- Register -->
+  <div class="card" id="registerForm" style="display:none;">
+    <h2>Register</h2>
+    <form onsubmit="register(event)">
+      <input type="text" id="name" placeholder="👤 Full Name" required />
+      <input type="text" id="department" placeholder="🏢 Department" required />
+      <input type="email" id="email" placeholder="📧 Email" required />
+      <input type="tel" id="phone" placeholder="📱 Mobile Number" required />
+      <input type="text" id="location" placeholder="📍 Location" required />
+      <input type="password" id="password" placeholder="🔐 Create Password" required maxlength="20" />
+      <button type="submit">Generate Global ID</button>
+    </form>
+    <p><a href="#" onclick="goBack()">⬅ Back</a></p>
+  </div>
+
+  <!-- Login -->
+  <div class="card" id="loginForm" style="display:none;">
+    <h2>Login</h2>
+    <form onsubmit="login(event)">
+      <input type="text" id="loginId" placeholder="🆔 Global ID" required />
+      <input type="password" id="loginPass" placeholder="🔐 Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p><a href="#" onclick="showRecovery()">🔁 Forgot Password?</a></p>
+    <p><a href="#" onclick="goBack()">⬅ Back</a></p>
+  </div>
+
+  <!-- Recovery -->
+  <div class="card" id="recoveryForm" style="display:none;">
+    <h2>Recover Password</h2>
+    <form onsubmit="recover(event)">
+      <input type="tel" id="recoveryPhone" placeholder="📱 Registered Mobile Number" required />
+      <button type="submit">Recover</button>
+    </form>
+    <p><a href="#" onclick="goBack()">⬅ Back</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

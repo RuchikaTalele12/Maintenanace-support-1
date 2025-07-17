@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('bg.dash.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+header {
+  background: rgba(0, 0, 50, 0.8);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.dashboard-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+.user-profile {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: #fff;
+  color: #002f6c;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fff;
+  color: #222;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  width: 230px;
+}
+
+.profile-dropdown button {
+  margin-top: 10px;
+  background-color: #002f6c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 14px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  width: 240px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  color: #002f6c;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #e3f2fd;
+}
+
+.main-btn {
+  background: linear-gradient(to bottom, #0059b3, #004080);
+  color: white;
+  padding: 18px 36px;
+  border: none;
+  font-size: 18px;
+  border-radius: 12px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px #002244;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.main-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px #001a33;
+}
+
+.main-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #001a33;
+}
+
+.form-box {
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.97);
+  color: #002f6c;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+#formContainer:empty {
+  display: none;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+  padding: 14px;
+  margin: 12px 0;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.mini-btn {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px #002244;
+}
+
+.button-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.button-nav button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

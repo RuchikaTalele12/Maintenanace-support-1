@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WIKA - Maint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <header>
+    <h1 class="dashboard-title">WIKA Maint</h1>
+    <div class="user-profile" onclick="toggleProfileDropdown()">
+      👤 <span id="username">User</span> ▼
+      <div id="profileDropdown" class="profile-dropdown">
+        <p><strong>📱 Phone:</strong> <span id="userphone">---</span></p>
+        <p><strong>💼 Username:</strong> <span id="userlogin">---</span></p>
+        <button onclick="editProfile()">✏️ Edit Profile</button>
+        <button onclick="logout()">🚪 Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="card-container">
+    <button class="main-btn" onclick="showTicketOptions()">🆕 New Ticket</button>
+    <button class="main-btn" onclick="showForm('track')">🔍 Track Your Ticket</button>
+  </main>
+
+  <section class="card-container" id="ticketOptions" style="display:none;">
+    <div class="card" onclick="showForm('breakdown')"><h2>⚙️ Breakdown</h2></div>
+    <div class="card" onclick="showForm('facility')"><h2>🏢 Facility Service</h2></div>
+    <div class="card" onclick="showForm('safety')"><h2>🦺 Safety</h2></div>
+  </section>
+
+  <section class="form-box" id="formContainer"></section>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
