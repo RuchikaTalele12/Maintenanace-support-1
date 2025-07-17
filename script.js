@@ -35,11 +35,9 @@ function register(event) {
 
   const globalId = "WIKA-" + Math.floor(Math.random() * 90000 + 10000);
 
-  const user = {
-    name, department, email, phone, location, password, globalId
-  };
-
+  const user = { name, department, email, phone, location, password, globalId };
   localStorage.setItem("user", JSON.stringify(user));
+
   alert(`✅ Registered!\nYour Global ID is: ${globalId}`);
   showLogin();
 }
@@ -53,7 +51,8 @@ function login(event) {
 
   if (user && user.globalId === globalId && user.password === password) {
     alert("✅ Login successful!");
-    // You can redirect to dashboard here
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    window.location.href = "dashboard.html";
   } else {
     alert("❌ Invalid Global ID or Password");
   }
